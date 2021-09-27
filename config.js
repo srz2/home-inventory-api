@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 module.exports = {
+    LOCAL_DEV: false,
     PORT: process.env.PORT,
     MONGO: {
         USERNAME: process.env.MONGO_USERNAME,

@@ -5,8 +5,10 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
 
+const originUrl = config.LOCAL_DEV ? "http://localhost:3000" : "https://wizardly-heyrovsky-afd1fb.netlify.app"
+console.log('Cors Origin Url:', originUrl);
 app.use(cors({
-        origin: "https://wizardly-heyrovsky-afd1fb.netlify.app"
+        origin: originUrl
     })
 )
 
