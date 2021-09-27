@@ -6,7 +6,7 @@ const cors = require('cors')
 const app = express()
 
 app.use(cors({
-        origin: "https://srz2.github.io"
+        origin: "https://wizardly-heyrovsky-afd1fb.netlify.app"
     })
 )
 
