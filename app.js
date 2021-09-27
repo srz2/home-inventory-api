@@ -6,7 +6,7 @@ const cors = require('cors')
 const app = express()
 
 app.use(cors({
-        origin: "http://localhost:3000"
+        origin: "https://srz2.github.io"
     })
 )
 
