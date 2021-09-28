@@ -1,10 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const auth = require('../middleware/check-auth');
 const router = express.Router()
 
 const Item = require('../models/Item')
 
-router.get('/', (req, res, next) => {
+router.get('/', auth, (req, res, next) => {
     Item.find()
     .exec()
     .then(docs => {
@@ -22,7 +23,7 @@ router.get('/', (req, res, next) => {
     })
 })
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', auth, (req, res, next) => {
     const id = req.params.id;
     console.log('Getting item:', id);
     Item.findById(id)
@@ -48,7 +49,7 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', auth, (req, res, next) => {
     console.log(req.body.tags);
     const newItem = new Item({
         _id: mongoose.Types.ObjectId(),
@@ -77,7 +78,7 @@ router.post('/', (req, res, next) => {
     })
 })
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', auth, (req, res, next) => {
     const id = req.params.id;
     console.log('Deleting:', id);
     Item.remove({
@@ -96,7 +97,7 @@ router.delete('/:id', (req, res, next) => {
     })
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', auth, (req, res, next) => {
     const id = req.params.id;
     console.log('Updating:', id);
     Item.findByIdAndUpdate(id, req.body)
