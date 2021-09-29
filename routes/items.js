@@ -50,7 +50,6 @@ router.get('/:id', auth, (req, res, next) => {
 })
 
 router.post('/', auth, (req, res, next) => {
-    console.log(req.body.tags);
     const newItem = new Item({
         _id: mongoose.Types.ObjectId(),
         name: req.body.name,

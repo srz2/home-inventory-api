@@ -5,8 +5,11 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
 
-const originUrl = config.LOCAL_DEV ? "http://localhost:3000" : "https://wizardly-heyrovsky-afd1fb.netlify.app"
+const originUrl = config.LOCAL_DEV ? "http://localhost:3000" : config.CLIENT_ORIGIN
 console.log('Cors Origin Url:', originUrl);
+if (originUrl === undefined) {
+    console.log('[Error]: Undefined client origin');
+}
 app.use(cors({
         origin: originUrl
     })
