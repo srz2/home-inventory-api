@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 module.exports = {
-    LOCAL_DEV: false,
+    LOCAL_DEV: process.env.LOCAL_DEV || false,
     PORT: process.env.PORT,
     API_KEY: process.env.api_key,
     CLIENT_ORIGIN: process.env.client_origin,
