@@ -5,6 +5,7 @@ const itemSchema = mongoose.Schema({
     created: Date,
     name: String,
     description: String,
+    brandCompany: String,
     quantity: String,
     location: String,
     color: String,

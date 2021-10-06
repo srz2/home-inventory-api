@@ -55,6 +55,7 @@ router.post('/', auth, (req, res, next) => {
         created: new Date(),
         name: req.body.name,
         description: req.body.description,
+        brandCompany: req.body.brandCompany,
         quantity: req.body.quantity,
         location: req.body.location,
         color: req.body.color,
